@@ -25,6 +25,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
+	// Get All Categories
 	@GetMapping
 	public List<Category> getAllCategories(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "5") int size) {
@@ -32,21 +33,25 @@ public class CategoryController {
 		return categoryService.getAllCategories(PageRequest.of(page, size)).getContent();
 	}
 
+	// Get Category by Id
 	@GetMapping("/{id}")
 	public Category getCategoryById(@PathVariable Long id) {
 		return categoryService.getCategoryById(id);
 	}
 
+	// Create Category
 	@PostMapping
 	public Category createCategory(@RequestBody Category category) {
 		return categoryService.createCategory(category);
 	}
 
+	// Update Category by Id
 	@PutMapping("/{id}")
 	public Category updateCategory(@PathVariable Long id, @RequestBody Category category) {
 		return categoryService.updateCategory(id, category);
 	}
 
+	// Delete Category by Id
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteCategory(@PathVariable Long id) {
 		if (categoryService.deleteCategory(id)) {

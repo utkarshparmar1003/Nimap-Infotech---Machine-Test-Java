@@ -14,21 +14,26 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
+	// Get All Categories
 	@Override
 	public Page<Category> getAllCategories(Pageable pageable) {
 		return categoryRepository.findAll(pageable);
 	}
 
+	// Get Category By Id
 	@Override
 	public Category getCategoryById(Long id) {
-		return categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category Not Found for this Id"));
+		return categoryRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Category Not Found for this Id"));
 	}
 
+	// Create Category
 	@Override
 	public Category createCategory(Category category) {
 		return categoryRepository.save(category);
 	}
 
+	// Update Category
 	@Override
 	public Category updateCategory(Long id, Category updateCategoryDetails) {
 
@@ -39,6 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	}
 
+	// Delete Category
 	@Override
 	public boolean deleteCategory(Long id) {
 		if (categoryRepository.existsById(id)) {
