@@ -28,7 +28,7 @@ public class CategoryController {
 	// Get All Categories
 	@GetMapping
 	public List<Category> getAllCategories(@RequestParam(defaultValue = "0") int page,
-			@RequestParam(defaultValue = "5") int size) {
+			@RequestParam(defaultValue = "3") int size) {
 
 		return categoryService.getAllCategories(PageRequest.of(page, size)).getContent();
 	}
