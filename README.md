@@ -33,6 +33,6 @@
 
 # Additional Requirements:
 
-Category-Product Relationship: One-to-many (One category can have multiple products).
-Server-side Pagination: Required for fetching categories and products.
-Single Product Response: Should include respective category details.
+1. Category-Product Relationship: One-to-many (One category can have multiple products).
+2. Server-side Pagination: Required for fetching categories and products.
+3. Single Product Response: Should include respective category details.
